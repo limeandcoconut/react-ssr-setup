@@ -2,6 +2,7 @@ import React from 'react';
 import { renderToString } from 'react-dom/server';
 import { StaticRouter as Router } from 'react-router-dom';
 import { Provider } from 'react-redux';
+// TODO: Checkout
 import IntlProvider from '../shared/i18n/IntlProvider';
 import Html from './components/HTML';
 import App from '../shared/App';

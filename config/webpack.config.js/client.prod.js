@@ -4,6 +4,7 @@ const generateSourceMap = process.env.OMIT_SOURCEMAP === 'true' ? false : true;
 const config = {
     ...baseConfig,
     mode: 'production',
+    //TODO: learn more about sourcemaps
     devtool: generateSourceMap ? 'source-map' : false,
 };
 

@@ -32,6 +32,7 @@ const start = async () => {
 
     const publicPath = clientConfig.output.publicPath;
 
+    //TODO: Couldn't this be interpolated for clarity
     clientConfig.output.publicPath = [`${DEVSERVER_HOST}:${WEBPACK_PORT}`, publicPath]
         .join('/')
         .replace(/([^:+])\/+/g, '$1/');
@@ -42,6 +43,7 @@ const start = async () => {
 
     const multiCompiler = webpack([clientConfig, serverConfig]);
 
+    //TODO: This seems suspect
     const clientCompiler = multiCompiler.compilers.find((compiler) => compiler.name === 'client');
     const serverCompiler = multiCompiler.compilers.find((compiler) => compiler.name === 'server');
 
@@ -54,6 +56,7 @@ const start = async () => {
         stats: clientConfig.stats,
     };
 
+    //TODO: Understand this better
     app.use((req, res, next) => {
         res.header('Access-Control-Allow-Origin', '*');
         return next();
@@ -95,6 +98,7 @@ const start = async () => {
     });
 
     // wait until client and server is compiled
+    //TODO: will this multithread as Promise.all would?
     try {
         await serverPromise;
         await clientPromise;

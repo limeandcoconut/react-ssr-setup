@@ -12,6 +12,7 @@ const babelLoader = {
     options: {
         plugins: [
             [
+                //TODO: This. Both parts.
                 require.resolve('babel-plugin-named-asset-import'),
                 {
                     loaderMap: {
@@ -31,6 +32,7 @@ const babelLoader = {
 const cssModuleLoaderClient = {
     test: cssModuleRegex,
     use: [
+        //TODO: This.
         require.resolve('css-hot-loader'),
         MiniCssExtractPlugin.loader,
         {
@@ -69,6 +71,7 @@ const cssLoaderClient = {
     ],
 };
 
+//TODO: Look into less and what's happening here
 const cssModuleLoaderServer = {
     test: cssModuleRegex,
     use: [
@@ -98,6 +101,7 @@ const cssLoaderServer = {
     loader: require.resolve('css-loader'),
 };
 
+//TODO: Look into asset loading
 const urlLoaderClient = {
     test: /\.(png|jpe?g|gif|svg)$/,
     loader: require.resolve('url-loader'),
