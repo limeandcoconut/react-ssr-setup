@@ -1,12 +1,12 @@
-const webpack = require('webpack');
-const ManifestPlugin = require('webpack-manifest-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
+const webpack = require('webpack')
+const ManifestPlugin = require('webpack-manifest-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin')
 // const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-const env = require('../env')();
+const env = require('../env')()
 
-const shared = [];
+const shared = []
 
 const client = [
     // TODO: add client side only mode
@@ -27,18 +27,18 @@ const client = [
             process.env.NODE_ENV === 'development' ? '[id].css' : '[id].[contenthash].css',
     }),
     new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
-    new ManifestPlugin({ fileName: 'manifest.json' }),
-];
+    new ManifestPlugin({fileName: 'manifest.json'}),
+]
 
 const server = [
     new webpack.DefinePlugin({
         __SERVER__: 'true',
         __BROWSER__: 'false',
     }),
-];
+]
 
 module.exports = {
     shared,
     client,
     server,
-};
+}

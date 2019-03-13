@@ -1,24 +1,35 @@
-import React from 'react';
-import { renderToString } from 'react-dom/server';
-import { StaticRouter as Router } from 'react-router-dom';
-import { Provider } from 'react-redux';
+import React from 'react'
+import {renderToString} from 'react-dom/server'
+import {StaticRouter} from 'react-router-dom'
+import {Provider} from 'react-redux'
 // TODO: Checkout
-import IntlProvider from '../shared/i18n/IntlProvider';
-import Html from './components/HTML';
-import App from '../shared/App';
+import IntlProvider from '../shared/i18n/IntlProvider'
+import Html from './components/HTML'
+import App from '../shared/App'
+
+// import {push} from 'connected-react-router'
 
 const serverRenderer = () => (req, res) => {
+    // req.store.dispatch(push(req.url))
     const content = renderToString(
         <Provider store={req.store}>
-            <Router location={req.url} context={{}}>
+
+            <StaticRouter location={req.url} context={{}}>
                 <IntlProvider>
+
                     <App />
                 </IntlProvider>
-            </Router>
-        </Provider>
-    );
+            </StaticRouter>
 
-    const state = JSON.stringify(req.store.getState());
+        </Provider>
+    )
+
+    // console.log('DUMP', content)
+
+    const state = JSON.stringify(req.store.getState())
+    console.log('state', state)
+    // console.log('state', Object.keys(state))
+    console.log('req', req.url)
 
     return res.send(
         '<!doctype html>' +
@@ -31,7 +42,7 @@ const serverRenderer = () => (req, res) => {
                     {content}
                 </Html>
             )
-    );
-};
+    )
+}
 
-export default serverRenderer;
+export default serverRenderer

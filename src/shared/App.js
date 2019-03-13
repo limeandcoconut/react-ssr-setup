@@ -23,6 +23,20 @@ class App extends React.PureComponent {
 
         return (
             <div className={css.wrapper}>
+
+                <nav>
+                    <NavLink to="/page1">
+                        Page 1
+                    </NavLink>
+                    <NavLink to="/page2">
+                        Page 2
+                    </NavLink> 
+                </nav>
+
+                <Switch>
+                    { routes.map((route) => <Route key={ route.path } { ...route } />) }
+                </Switch>
+
                 <Helmet defaultTitle="React SSR Starter" titleTemplate="%s – React SSR Starter" />
 
                 <h1>
