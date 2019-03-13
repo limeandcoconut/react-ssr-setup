@@ -36,7 +36,7 @@ const manifestPath = path.join(paths.clientBuild, paths.publicPath)
 
 app.use(
     manifestHelpers({
-        manifestPath: `${manifestPath}/manifest.json`,
+        manifestPath: path.join(manifestPath, '/manifest.json'),
     })
 )
 
