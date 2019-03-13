@@ -48,7 +48,7 @@ This project has out-of-the-box support for the following things:
     -   🔥 Babel 7
     -   🔥 Webpack 4
     -   🔥 ESLint 5 (with a set of custom rules which may be mostly identical to AirBnB with some personal flavor added)
-    -   🔥 Flow Type
+
     -   🔥 Prettier
     -   🔥 Jest 24
     -   ✅ Server side prerendering with Express
