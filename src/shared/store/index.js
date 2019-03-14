@@ -1,6 +1,8 @@
-import thunk from 'redux-thunk'
+// import thunk from 'redux-thunk'
+import createSagaMiddleware from 'redux-saga'
 import {createStore, applyMiddleware, compose} from 'redux'
 import rootReducer from './rootReducer'
+import rootSaga from './rootSaga'
 
 export const configureStore = ({initialState, middleware = []} = {}) => {
     const devtools =
@@ -10,11 +12,15 @@ export const configureStore = ({initialState, middleware = []} = {}) => {
 
     const composeEnhancers = devtools || compose
 
+    const sagaMiddleware = createSagaMiddleware()
+
     const store = createStore(
         rootReducer,
         initialState,
-        composeEnhancers(applyMiddleware(...[thunk].concat(...middleware)))
+        composeEnhancers(applyMiddleware(...[sagaMiddleware].concat(...middleware)))
     )
+
+    sagaMiddleware.run(rootSaga)
 
     if (process.env.NODE_ENV !== 'production') {
         if (module.hot) {

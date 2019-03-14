@@ -1,9 +1,9 @@
 
-export const ActionTypes = {
-    SETLOCALE: 'app/set-locale',
-}
+// export const ActionTypes = {
+//     SETLOCALE: 'app/set-locale',
+// }
 
 export const setLocale = (locale) => ({
-    type: ActionTypes.SETLOCALE,
+    type: 'APP/SET_LOCALE',
     payload: locale,
 })
