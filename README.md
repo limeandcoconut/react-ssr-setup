@@ -1,3 +1,8 @@
+# README IS NOT UP TO DATE
+- THIS IS BASED OFF [react-ssr-setup](https://github.com/manuelbieh/react-ssr-setup) by [Manuel Bieh](https://github.com/manuelbieh)
+- COMMITS ARE DIRTY
+
+
 # ⚛ React + Express – SSR Setup
 
 [![Maintainability](https://api.codeclimate.com/v1/badges/085d871cd62fe4435865/maintainability)](https://codeclimate.com/github/manuelbieh/react-ssr-setup/maintainability)
